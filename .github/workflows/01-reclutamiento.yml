@@ -3,9 +3,21 @@ name: Reclutamiento de Agente
 on: push
 
 jobs:
-  repote-de-reclutamientoo:
-   run-on: ubuntu-latest
+  reporte-de-reclutamiento:
+    runs-on: ubuntu-latest
 
-  steps:
-    - name:  El agente se presenta.
-      run: echo "Soy Lex Luthor, y el liderr de la Legion del Mal"
+    steps:
+      - name: El agente se presenta
+        run: echo "Soy Lex Luthor, y el líder de la Legion del Mal"
+
+      - name: Reporte de identidad
+        run: |
+          echo "Reporte de identidad"
+          echo "====================="
+          echo ""
+          echo "Nombre clave: ${{ github.actor }}"
+          echo ""
+          echo "Contexto de Github"
+          echo "Repo: ${{ github.repository }}"
+          echo "Operación: ${{ github.sha }}"
+          echo "Metadata: ${{ toJson(github) }}"
