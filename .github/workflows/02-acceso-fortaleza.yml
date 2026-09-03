@@ -1,17 +1,25 @@
 name: Acceso a la Fortaleza Prohibida
 
-on: push
+on:
+  push:
 
 jobs:
   acceso-a-la-base:
     runs-on: ubuntu-latest
 
     steps:
-      - name: El agente llega a la fortaleza
+      - name: Brainiac desbloquea la bóveda
+        uses: actions/checkout@v4
+
+      - name: Ahora sí, vamos a ver los planes
         run: |
-          echo "Agente ${{ github.actor }} llega a la fortaleza"
-          echo ""
-          echo "Buscando los archivos de la legión"
+          echo "Buscando los archivos de la legión..."
           ls -la
+          echo "✅ Planes encontrados."
           echo ""
-          echo "❌ pero que pasò? no hay nada"
+          echo "Planes:"
+          ls planes/
+          echo "Villanos:"
+          ls villanos/
+          echo "Inteligencia:"
+          ls inteligencia/

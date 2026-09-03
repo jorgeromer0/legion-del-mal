@@ -1,14 +1,15 @@
-name: Reclutamiento de Agente
+name: Reclutamiento de agente
 
-on: push
+on:
+  workflow_dispatch:
 
 jobs:
   reporte-de-reclutamiento:
     runs-on: ubuntu-latest
 
     steps:
-      - name: El agente se presenta
-        run: echo "Soy Lex Luthor, y el líder de la Legion del Mal"
+      - name: Presentación del agente
+        run: echo "Soy Lex Luthor y el líder de la Liga de la Justicia."
 
       - name: Reporte de identidad
         run: |
@@ -17,17 +18,18 @@ jobs:
           echo ""
           echo "Nombre clave: ${{ github.actor }}"
           echo ""
-          echo "Contexto de Github"
-          echo "Repo: ${{ github.repository }}"
-          echo "Operación: ${{ github.sha }}"
-          echo "Metadata: ${{ toJson(github) }}"
+          echo "Contexto de GitHub"
+          echo "Repositorio: ${{ github.repository }}"
+          echo "SHA de la operación: ${{ github.sha }}"
+          echo "Metadatos: ${{ toJson(github) }}"
 
       - name: Capacidades del agente
         run: |
           echo "Capacidades detectadas:"
-          echo "Sistema operativo"
+          echo "Sistema operativo:"
           uname -a
-          echo "Habilidades técnicas"
+          echo ""
+          echo "Herramientas disponibles:"
           node --version
           git --version
           python3 --version
